@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { getIeltsCourseData } from "@/utils/actions";
 
 export default async function Home() {
@@ -11,9 +12,12 @@ export default async function Home() {
   console.log(course);
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: course.description }} />
-    </div>
+    <>
+      <Header />
+      <div className="p-6 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: course.description }} />
+      </div>
+    </>
   );
 }
