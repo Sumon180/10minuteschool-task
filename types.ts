@@ -2,11 +2,18 @@
 import axios from "axios";
 
 export interface Medium {
-  // Fill as needed
+  name: string;
+  resource_type: string;
+  resource_value: string;
+  thumbnail_url: string;
 }
 
 export interface Checklist {
-  // Fill as needed
+  color: string;
+  icon: string;
+  id: string;
+  list_page_visibility: boolean;
+  text: string;
 }
 
 export interface Seo {
