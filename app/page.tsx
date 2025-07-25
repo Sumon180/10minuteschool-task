@@ -1,11 +1,11 @@
 import CourseDetails from "@/components/CourseDetails";
+import CourseInstructor from "@/components/CourseInstructor";
 import CourseMedium from "@/components/CourseMedium";
 import Header from "@/components/Header";
-import { Medium } from "@/types";
 import { getIeltsCourseData } from "@/utils/actions";
 
 export default async function Home() {
-  const result = await getIeltsCourseData("bn"); // or "bn"
+  const result = await getIeltsCourseData("bn"); // or "en"
 
   if (!result.success || !result.data) {
     return <p className="text-red-500">Failed to load course data.</p>;
@@ -34,11 +34,14 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="p-5">
-        <div className="md:hidden">
-          <CourseDetails checklist={checklist} />
-        </div>
-      </section>
+      <div className="p-5">
+        <section className="max-w-7xl mx-auto">
+          <div className="md:hidden">
+            <CourseDetails checklist={checklist} />
+          </div>
+          <CourseInstructor />
+        </section>
+      </div>
     </>
   );
 }
