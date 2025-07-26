@@ -10,7 +10,7 @@ type Pointer = {
 
 export default function CoursePointers({ values }: { values: Pointer[] }) {
   return (
-    <div className="bg-white rounded-md border border-gray-300 p-6 grid md:grid-cols-2 gap-5">
+    <div className="bg-white rounded-md md:border md:p-6 grid md:grid-cols-2 gap-5">
       {values.map((item) => (
         <div key={item.id} className="flex items-start space-x-3">
           {/* Icon */}

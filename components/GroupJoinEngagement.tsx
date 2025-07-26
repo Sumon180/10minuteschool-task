@@ -42,7 +42,7 @@ export default function GroupJoinEngagement({
           {/* Content */}
           <div className="relative z-10 flex flex-col max-md:items-center justify-center text-white w-full md:w-1/2 space-y-4">
             {/* Top-left icon */}
-            <div className="w-32 md:w-56">
+            <div className="w-44 md:w-56">
               <Image
                 src={item.top_left_icon_img}
                 alt="Top left icon"
@@ -81,7 +81,7 @@ export default function GroupJoinEngagement({
           </div>
 
           {/* Thumbnail */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 hidden md:block">
             <Image
               src={item.thumbnail}
               alt="Thumbnail"

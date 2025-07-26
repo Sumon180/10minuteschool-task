@@ -17,7 +17,7 @@ export default function CourseAbout({ values }: { values: AccordionItem[] }) {
   };
 
   return (
-    <div className="border rounded-md px-6">
+    <div className="md:border rounded-md md:px-6">
       {values.map((item, i) => (
         <div
           key={item.id}
@@ -29,14 +29,16 @@ export default function CourseAbout({ values }: { values: AccordionItem[] }) {
         >
           <button
             onClick={() => toggleAccordion(item.id)}
-            className="w-full cursor-pointer text-left text-xl py-4 focus:outline-none flex justify-between items-center"
+            className="w-full cursor-pointer text-left text-xl py-4 focus:outline-none flex justify-between items-center gap-5"
           >
             <span dangerouslySetInnerHTML={{ __html: item.title }} />
-            <ChevronDown
-              className={`duration-300 ${
-                openIndex === item.id && "rotate-180"
-              }`}
-            />
+            <span>
+              <ChevronDown
+                className={`duration-300 ${
+                  openIndex === item.id && "rotate-180"
+                }`}
+              />
+            </span>
           </button>
 
           {openIndex === item.id && (

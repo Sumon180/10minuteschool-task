@@ -40,7 +40,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
                 }
                 alt="Video Thumbnail"
                 fill
-                className="object-cover rounded-md"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 flex items-center justify-center">
                 <button className="bg-white rounded-full p-1 border-4 border-black/20">
@@ -62,7 +62,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
-              className="w-full h-full rounded-md"
+              className="w-full h-full"
             ></iframe>
           )}
         </div>
@@ -70,7 +70,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
 
       <div className="p-5">
         {/* Thumbnail Swiper */}
-        <div className="mb-10">
+        <div className="md:mb-10">
           <Swiper
             spaceBetween={12}
             slidesPerView={4}

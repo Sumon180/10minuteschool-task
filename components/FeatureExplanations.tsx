@@ -17,7 +17,7 @@ export default function FeatureExplanations({
   values: FeatureItem[];
 }) {
   return (
-    <div className="rounded-md border divide-y divide-gray-300 bg-white px-6">
+    <div className="rounded-md md:border divide-y divide-gray-300 bg-white md:px-6">
       {values.map((item) => (
         <div
           key={item.id}

@@ -13,7 +13,7 @@ export default function CourseDescription({ course }: Props) {
 
   return (
     <section
-      className="p-3 py-20 text-white bg-cover bg-center"
+      className="px-3 py-5 md:py-20 text-white bg-cover bg-center"
       style={{
         backgroundImage: "url('/ui_(1)_1716445506383.jpeg')",
       }}
@@ -21,7 +21,7 @@ export default function CourseDescription({ course }: Props) {
       <div className="relative max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-4">
         <div className="md:max-w-[61%]">
           <h1 className="text-4xl font-bold mb-4">{course.title}</h1>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex flex-col md:flex-row md:items-center gap-3 mb-4">
             <Image
               src="/Dev_Handoff_Q1_24_Frame_2_1725444418666.jpeg"
               alt="star"
@@ -36,7 +36,7 @@ export default function CourseDescription({ course }: Props) {
             className="text-lg text-gray-200 font-medium"
           />
         </div>
-        <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] p-1 bg-white border border-gray-300">
+        <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] md:p-1 md:bg-white md:border">
           <CourseMedium medias={medias} checklist={checklist} />
         </div>
       </div>
