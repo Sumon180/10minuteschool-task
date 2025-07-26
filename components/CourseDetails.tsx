@@ -79,7 +79,7 @@ export default function CourseDetails({ checklist, sections }: Props) {
       {/* Checklist Sidebar appears after scrollY > 1000 */}
       {showChecklist && (
         <aside
-          className="hidden md:block bg-white border w-full md:max-w-[330px] lg:max-w-[440px] p-5 sticky top-20"
+          className="hidden md:block bg-white border w-full rounded-md md:max-w-[330px] lg:max-w-[440px] p-5 sticky top-20"
           aria-label="Course Checklist"
         >
           <CourseChecklist checklist={checklist} />

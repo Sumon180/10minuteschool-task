@@ -39,7 +39,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
   }, [activeIndex]);
 
   return (
-    <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] md:p-1 md:bg-white md:border">
+    <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] md:p-1 md:bg-white md:border md:border-gray-300">
       {/* Main Video Swiper */}
       <div className="relative">
         {navReady && (
