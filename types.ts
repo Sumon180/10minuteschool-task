@@ -16,8 +16,24 @@ export interface Checklist {
   text: string;
 }
 
+export interface MetaTag {
+  content: string;
+  type: "name" | "property";
+  value: string;
+}
+
+export interface Schema {
+  meta_name: string; // e.g., "ld-json"
+  meta_value: string; // JSON string of the structured data
+  type: string; // e.g., "ld-json"
+}
+
 export interface Seo {
-  // Fill as needed
+  title: string;
+  description: string;
+  keywords: string[];
+  defaultMeta: MetaTag[];
+  schema: Schema[];
 }
 
 export interface CtaText {
