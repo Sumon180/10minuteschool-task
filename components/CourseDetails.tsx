@@ -1,43 +1,79 @@
 "use client";
 
-import { Checklist } from "@/types";
-import Image from "next/image";
-import React from "react";
+import { Checklist, Section } from "@/types";
+import React, { useEffect, useState } from "react";
+import CourseAbout from "./CourseAbout";
+import CourseChecklist from "./CourseChecklist";
+import CourseInstructor from "./CourseInstructor";
+import CoursePointers from "./CoursePointers";
+import FeatureExplanations from "./FeatureExplanations";
+import Features from "./Features";
+import GroupJoinEngagement from "./GroupJoinEngagement";
 
 interface Props {
   checklist: Checklist[];
+  sections: Section[];
 }
 
-export default function CourseDetails({ checklist }: Props) {
+export default function CourseDetails({ checklist, sections }: Props) {
+  const [showChecklist, setShowChecklist] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1000) {
+        setShowChecklist(true);
+      } else {
+        setShowChecklist(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <div className="text-black mb-5 flex items-center gap-3">
-        <span className="text-3xl font-bold">৳3850</span>{" "}
-        <span className="line-through text-2xl font-medium text-gray-500">
-          ৳5000
-        </span>{" "}
-        <span className="bg-amber-600 text-white px-3">1150 ৳ ছাড়</span>
+    <div className="w-full flex items-start justify-between">
+      <div className="md:w-[62%] space-y-10">
+        {sections.map((section, i) => (
+          <div key={i}>
+            {(section.type === "instructors" ||
+              section.type === "features" ||
+              section.type === "group_join_engagement" ||
+              section.type === "about" ||
+              section.type === "feature_explanations") && (
+              <p className="text-2xl md:text-3xl font-semibold mb-3">
+                {section.name}
+              </p>
+            )}
+
+            {section.type === "instructors" && (
+              <CourseInstructor values={section.values} />
+            )}
+            {section.type === "features" && (
+              <Features values={section.values} />
+            )}
+            {section.type === "group_join_engagement" && (
+              <GroupJoinEngagement values={section.values} />
+            )}
+            {section.type === "pointers" && (
+              <CoursePointers values={section.values} />
+            )}
+            {section.type === "about" && (
+              <CourseAbout values={section.values} />
+            )}
+            {section.type === "feature_explanations" && (
+              <FeatureExplanations values={section.values} />
+            )}
+          </div>
+        ))}
       </div>
-      <button className="w-full text-lg p-2 rounded-md bg-primary text-white">
-        কোর্সটি কিনুন
-      </button>
-      <div>
-        <p className="text-2xl mt-5 font-medium mb-2">এই কোর্সে যা থাকছে</p>
-        <ul className="text-black space-y-3">
-          {checklist.map((item, i) => (
-            <li key={i} className="flex items-center gap-3">
-              <Image
-                src={item.icon || "/default-thumbnail.jpg"}
-                alt={item.id}
-                width={100}
-                height={100}
-                className="size-5"
-              />
-              <span className="text-lg">{item.text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+
+      {/* Checklist Sidebar appears after scrollY > 300 */}
+      {showChecklist && (
+        <div className="hidden md:block bg-white border w-full md:max-w-[330px] lg:max-w-[440px] p-5 sticky top-20">
+          <CourseChecklist checklist={checklist} />
+        </div>
+      )}
+    </div>
   );
 }

@@ -4,7 +4,7 @@ import { Checklist, Medium } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
-import CourseDetails from "./CourseDetails";
+import CourseChecklist from "./CourseChecklist";
 
 interface Props {
   medias: Medium[];
@@ -103,7 +103,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
           </Swiper>
         </div>
         <div className="hidden md:block">
-          <CourseDetails checklist={checklist} />
+          <CourseChecklist checklist={checklist} />
         </div>
       </div>
     </>
