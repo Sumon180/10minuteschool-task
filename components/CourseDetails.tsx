@@ -68,7 +68,7 @@ export default function CourseDetails({ checklist, sections }: Props) {
         ))}
       </div>
 
-      {/* Checklist Sidebar appears after scrollY > 300 */}
+      {/* Checklist Sidebar appears after scrollY > 1000 */}
       {showChecklist && (
         <div className="hidden md:block bg-white border w-full md:max-w-[330px] lg:max-w-[440px] p-5 sticky top-20">
           <CourseChecklist checklist={checklist} />
