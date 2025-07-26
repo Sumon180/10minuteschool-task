@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Checklist, Medium } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,7 +22,8 @@ export default function CourseMedium({ medias, checklist }: Props) {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
-  const mainSwiperRef = useRef<any>(null); // to control main swiper
+  const mainSwiperRef = useRef<SwiperType | null>(null);
+  // to control main swiper
 
   const [navReady, setNavReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0); // track current main swiper index

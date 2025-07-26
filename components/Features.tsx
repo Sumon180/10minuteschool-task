@@ -1,7 +1,18 @@
 import React from "react";
 import Image from "next/image";
 
-export default function Features({ values }: { values: any[] }) {
+interface FeatureItem {
+  id: string | number;
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+interface Props {
+  values: FeatureItem[];
+}
+
+export default function Features({ values }: Props) {
   return (
     <div className="bg-[#121828] text-white py-10 px-6 md:px-10 rounded-md grid grid-cols-1 sm:grid-cols-2 gap-8">
       {values.map((item) => (
