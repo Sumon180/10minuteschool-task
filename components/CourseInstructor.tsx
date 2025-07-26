@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function CourseInstructor({ values }: { values: any[] }) {
@@ -6,20 +7,24 @@ export default function CourseInstructor({ values }: { values: any[] }) {
       {values.map((instructor, index) => (
         <div
           key={index}
-          className="flex items-center gap-4 border border-gray-300 rounded-md p-4"
+          className="flex flex-col md:flex-row items-center gap-4 border border-gray-300 rounded-md p-4"
         >
-          <img
+          <Image
             src={instructor.image}
             alt={instructor.name}
-            className="w-20 h-20 rounded-full object-cover"
+            width={200}
+            height={200}
+            className="w-40 h-40 md:w-20 md:h-20 rounded-full object-cover"
           />
-          <div>
+          <div className="flex flex-col max-md:items-center">
             <p className="text-xl font-semibold hover:text-primary">
               {instructor.name}
             </p>
-            <p className="text-gray-500">{instructor.short_description}</p>
+            <p className="text-gray-500 max-md:text-center">
+              {instructor.short_description}
+            </p>
             <div
-              className="text-sm text-gray-600 mt-1"
+              className="text-sm text-gray-600 mt-1 max-md:text-center"
               dangerouslySetInnerHTML={{
                 __html: instructor.description,
               }}

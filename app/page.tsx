@@ -1,3 +1,4 @@
+import CourseAbout from "@/components/CourseAbout";
 import CourseDetails from "@/components/CourseDetails";
 import CourseInstructor from "@/components/CourseInstructor";
 import CourseMedium from "@/components/CourseMedium";
@@ -7,7 +8,6 @@ import Features from "@/components/Features";
 import GroupJoinEngagement from "@/components/GroupJoinEngagement";
 import Header from "@/components/Header";
 import { getIeltsCourseData } from "@/utils/actions";
-import Image from "next/image";
 
 export default async function Home() {
   const result = await getIeltsCourseData("bn"); // or "en"
@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <section className="p-3 py-20 bg-gradient-to-br from-[#03020f] via-[#03020f] to-[#035870] text-white">
+      <section className="p-3 py-20 url-[] bg-gradient-to-br from-[#03020f] via-[#03020f] to-[#035870] text-white">
         <div className="relative max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-4">
           <div className="md:max-w-[61%]">
             <h1 className="text-4xl font-bold mb-4">{course.title}</h1>
@@ -47,7 +47,16 @@ export default async function Home() {
           <div className="md:w-7/12 space-y-10">
             {sections.map((section, i) => (
               <div key={i}>
-                <p className="text-3xl font-semibold mb-3">{section.name}</p>
+                {(section.type === "instructors" ||
+                  section.type === "features" ||
+                  section.type === "group_join_engagement" ||
+                  section.type === "about" ||
+                  section.type === "feature_explanations") && (
+                  <p className="text-2xl md:text-3xl font-semibold mb-3">
+                    {section.name}
+                  </p>
+                )}
+
                 {section.type === "instructors" && (
                   <CourseInstructor values={section.values} />
                 )}
@@ -59,6 +68,9 @@ export default async function Home() {
                 )}
                 {section.type === "pointers" && (
                   <CoursePointers values={section.values} />
+                )}
+                {section.type === "about" && (
+                  <CourseAbout values={section.values} />
                 )}
                 {section.type === "feature_explanations" && (
                   <FeatureExplanations values={section.values} />

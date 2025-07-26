@@ -40,7 +40,7 @@ export default function GroupJoinEngagement({
           }}
         >
           {/* Content */}
-          <div className="relative z-10 flex flex-col justify-center text-white w-full md:w-1/2 space-y-4">
+          <div className="relative z-10 flex flex-col max-md:items-center justify-center text-white w-full md:w-1/2 space-y-4">
             {/* Top-left icon */}
             <div className="w-32 md:w-56">
               <Image
@@ -54,7 +54,7 @@ export default function GroupJoinEngagement({
 
             {/* Title */}
             <h2
-              className="text-xl md:text-3xl font-bold"
+              className="text-xl md:text-3xl font-bold max-md:text-center"
               style={{ color: item.title_color || "#ffffff" }}
             >
               {item.title}
@@ -62,7 +62,7 @@ export default function GroupJoinEngagement({
 
             {/* Description */}
             <p
-              className="text-base md:text-lg"
+              className="text-base md:text-lg max-md:text-center"
               style={{ color: item.description_color || "#eeeeee" }}
             >
               {item.description}

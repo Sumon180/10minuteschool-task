@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Check } from "lucide-react";
 
 type FeatureItem = {
   checklist: string[];
@@ -27,9 +28,12 @@ export default function FeatureExplanations({
             <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-3">
               {item.title}
             </h3>
-            <ul className="list-disc list-inside text-lg text-gray-600 space-y-1">
+            <ul className="text-lg text-gray-600 space-y-1">
               {item.checklist.map((point, index) => (
-                <li key={index}>{point}</li>
+                <li key={index} className="flex items-start gap-3">
+                  <Check className="text-primary w-5 h-5" />
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
           </div>
