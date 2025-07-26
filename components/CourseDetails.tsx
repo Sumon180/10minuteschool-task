@@ -11,7 +11,7 @@ interface Props {
 export default function CourseDetails({ checklist }: Props) {
   return (
     <>
-      <div className="text-black mb-5 mt-10 flex items-center gap-3">
+      <div className="text-black mb-5 flex items-center gap-3">
         <span className="text-3xl font-bold">৳3850</span>{" "}
         <span className="line-through text-2xl font-medium text-gray-500">
           ৳5000

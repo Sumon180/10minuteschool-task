@@ -70,36 +70,38 @@ export default function CourseMedium({ medias, checklist }: Props) {
 
       <div className="p-5">
         {/* Thumbnail Swiper */}
-        <Swiper
-          spaceBetween={12}
-          slidesPerView={4}
-          breakpoints={{
-            640: { slidesPerView: 5 },
-            768: { slidesPerView: 4 },
-            1024: { slidesPerView: 5 },
-          }}
-        >
-          {videoMedias.map((media, index) => (
-            <SwiperSlide key={index}>
-              <div
-                onClick={() => setSelectedVideoId(media.resource_value)}
-                className={`cursor-pointer rounded-sm overflow-hidden border-2 transition-transform hover:scale-105 ${
-                  selectedVideoId === media.resource_value
-                    ? "border-primary"
-                    : "border-transparent"
-                }`}
-              >
-                <Image
-                  src={media.thumbnail_url || "/default-thumbnail.jpg"}
-                  alt={media.name}
-                  width={500}
-                  height={400}
-                  className="w-full h-10 md:h-9 object-cover"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="mb-10">
+          <Swiper
+            spaceBetween={12}
+            slidesPerView={4}
+            breakpoints={{
+              640: { slidesPerView: 5 },
+              768: { slidesPerView: 4 },
+              1024: { slidesPerView: 5 },
+            }}
+          >
+            {videoMedias.map((media, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  onClick={() => setSelectedVideoId(media.resource_value)}
+                  className={`cursor-pointer rounded-sm overflow-hidden border-2 transition-transform hover:scale-105 ${
+                    selectedVideoId === media.resource_value
+                      ? "border-primary"
+                      : "border-transparent"
+                  }`}
+                >
+                  <Image
+                    src={media.thumbnail_url || "/default-thumbnail.jpg"}
+                    alt={media.name}
+                    width={500}
+                    height={400}
+                    className="w-full h-10 md:h-9 object-cover"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
         <div className="hidden md:block">
           <CourseDetails checklist={checklist} />
         </div>
