@@ -24,7 +24,7 @@ export default function CourseMedium({ medias, checklist }: Props) {
   }, [selectedVideoId]);
 
   return (
-    <>
+    <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] md:p-1 md:bg-white md:border">
       {/* Video Preview */}
       {selectedVideoId && (
         <div className="w-full max-w-4xl mx-auto aspect-video">
@@ -106,6 +106,6 @@ export default function CourseMedium({ medias, checklist }: Props) {
           <CourseChecklist checklist={checklist} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

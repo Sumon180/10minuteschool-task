@@ -36,9 +36,7 @@ export default function CourseDescription({ course }: Props) {
             className="text-lg text-gray-200 font-medium"
           />
         </div>
-        <div className="md:absolute right-0 top-0 w-full md:max-w-[330px] lg:max-w-[440px] md:p-1 md:bg-white md:border">
-          <CourseMedium medias={medias} checklist={checklist} />
-        </div>
+        <CourseMedium medias={medias} checklist={checklist} />
       </div>
     </section>
   );
