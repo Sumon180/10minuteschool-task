@@ -25,7 +25,9 @@ export interface CtaText {
 }
 
 export interface Section {
-  // Fill as needed
+  type: string;
+  name: string;
+  values: any;
 }
 
 export interface Data {
