@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type EngagementCard = {
   background: {
@@ -26,37 +27,43 @@ export default function GroupJoinEngagement({
   values: EngagementCard[];
 }) {
   return (
-    <div className="">
+    <div className="space-y-6">
       {values.map((item) => (
         <div
           key={item.id}
-          className="relative rounded-2xl overflow-hidden shadow-lg group p-10 flex items-center gap-5"
+          className="relative rounded-2xl overflow-hidden shadow-xl group p-6 md:p-10 flex flex-col md:flex-row items-center gap-6"
           style={{
             backgroundImage: `url(${item.background.image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundColor: item.background.primary_color || "#000",
           }}
         >
           {/* Content */}
-          <div className="relative z-10 flex flex-col justify-end h-full text-white">
+          <div className="relative z-10 flex flex-col justify-center text-white w-full md:w-1/2 space-y-4">
             {/* Top-left icon */}
-            <img
-              src={item.top_left_icon_img}
-              alt="Icon"
-              className="w-56 h-auto shadow-md z-10"
-            />
+            <div className="w-32 md:w-56">
+              <Image
+                src={item.top_left_icon_img}
+                alt="Top left icon"
+                width={224}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+
             {/* Title */}
             <h2
-              className="text-2xl font-bold my-5"
-              style={{ color: item.title_color || "#fff" }}
+              className="text-xl md:text-3xl font-bold"
+              style={{ color: item.title_color || "#ffffff" }}
             >
               {item.title}
             </h2>
 
             {/* Description */}
             <p
-              className="text-lg mb-4"
-              style={{ color: item.description_color || "#ccc" }}
+              className="text-base md:text-lg"
+              style={{ color: item.description_color || "#eeeeee" }}
             >
               {item.description}
             </p>
@@ -66,18 +73,23 @@ export default function GroupJoinEngagement({
               href={item.cta.clicked_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-fit bg-primary text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-primary transition"
-              //   style={{ backgroundColor: item.cta.color || "#ffffff" }}
+              className="inline-block w-fit bg-primary text-white font-semibold py-2 px-4 rounded-md shadow hover:opacity-90 transition"
+              // style={{ backgroundColor: item.cta.color || "#1d4ed8" }}
             >
               {item.cta.text}
             </a>
           </div>
+
           {/* Thumbnail */}
-          <img
-            src={item.thumbnail}
-            alt="Thumbnail"
-            className="w-1/2 h-auto rounded-md shadow-lg"
-          />
+          <div className="w-full md:w-1/2">
+            <Image
+              src={item.thumbnail}
+              alt="Thumbnail"
+              width={500}
+              height={300}
+              className="rounded-md shadow-lg w-full h-auto object-contain"
+            />
+          </div>
         </div>
       ))}
     </div>

@@ -1,9 +1,6 @@
-import Image from "next/image";
 import React from "react";
 
 export default function CourseInstructor({ values }: { values: any[] }) {
-  console.log(values);
-
   return (
     <div className="space-y-6">
       {values.map((instructor, index) => (

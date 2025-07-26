@@ -13,3 +13,9 @@
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary)
 }
+
+@layer base {
+  .border {
+    @apply border border-gray-300
+  }
+}

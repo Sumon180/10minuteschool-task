@@ -1,6 +1,8 @@
 import CourseDetails from "@/components/CourseDetails";
 import CourseInstructor from "@/components/CourseInstructor";
 import CourseMedium from "@/components/CourseMedium";
+import CoursePointers from "@/components/CoursePointers";
+import FeatureExplanations from "@/components/FeatureExplanations";
 import Features from "@/components/Features";
 import GroupJoinEngagement from "@/components/GroupJoinEngagement";
 import Header from "@/components/Header";
@@ -54,6 +56,12 @@ export default async function Home() {
                 )}
                 {section.type === "group_join_engagement" && (
                   <GroupJoinEngagement values={section.values} />
+                )}
+                {section.type === "pointers" && (
+                  <CoursePointers values={section.values} />
+                )}
+                {section.type === "feature_explanations" && (
+                  <FeatureExplanations values={section.values} />
                 )}
               </div>
             ))}
