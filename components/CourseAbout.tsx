@@ -17,7 +17,7 @@ export default function CourseAbout({ values }: { values: AccordionItem[] }) {
   };
 
   return (
-    <div className="md:border rounded-md md:px-6">
+    <div className="md:border md:border-gray-300 rounded-md md:px-6">
       {values.map((item, i) => (
         <div
           key={item.id}
